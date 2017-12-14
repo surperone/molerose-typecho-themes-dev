@@ -65,14 +65,18 @@
           <strong><?php _e('朋友们的碎碎念'); ?></strong> 
           <a href="#" class="pull-right" title="查看更多"><i class="fa fa-share"></i></a> 
          </div> 
-         <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentComments', $this->options->sidebarBlock)): ?>
-         <div class="list-group list-group-alt"> 
-	        <?php $this->widget('Widget_Comments_Recent')->to($comments); ?>
-	        <?php while($comments->next()): ?>
-	        	 <a href="<?php $comments->permalink(); ?>" class="media list-group-item"> <span class="pull-left thumb-sm"> <img src="images/a0.png" alt="..." class="img-circle" /> </span> <span class="media-body block m-b-none"><?php $comments->author(false); ?><br /> <small class="text-muted"><?php $comments->excerpt(35, '...'); ?></small> </span> </a> 
-	        <?php endwhile; ?>
-         </div> 
-         <?php endif; ?>
+        <?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
+        <?php while($comments->next()): ?>
+            <div class="list-group list-group-alt"> 
+              <a href="<?php $comments->permalink(); ?>" class="media list-group-item"> 
+              <span class="pull-left thumb-sm"> <?php $comments->gravatar('40', ''); ?> </span> 
+              <span class="media-body block m-b-none"><?php $comments->author(false); ?><br /> 
+                <small class="text-muted"><?php $comments->excerpt(50, '...'); ?></small> 
+              </span> 
+              </a> 
+             </div> 
+        <?php endwhile; ?>
+
         </section> 
        </section> 
        </li> 

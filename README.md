@@ -34,9 +34,52 @@
 | CommentToMail （留言同步邮箱） |
 | Sticky （文章置顶） |
 | Thumbnail （文章缩略图） |
+| TePostViews （浏览统计和热门文章调用） |
 
+
+## 使用注意事项
+
+- 针对 `Links` 插件，不论使用typecho1.0还是typecho1.1 均需要修改原始模板的一个东西（修改的原因是因为插件本导致文件被重复 `require` 了）
+- 目录：`/admin/common.php`
+- 内容：第6行的 `define('__TYPECHO_ADMIN__', true);` 换成如下代码
+
+``` PHP
+if (!defined('__TYPECHO_ADMIN__')) {
+        define('__TYPECHO_ADMIN__', true);
+}
+```
+
+- 针对 `Avatars` 插件，如果使用 typecho1.1 的话存存在一个插件不能使用，原因是因为插件中限定了版本号 `@dependence` ，去掉即可
 
 ## 笔记
+
+- 侧边栏标签集合调用
+
+```PHP
+<?php $this->widget('Widget_Metas_Tag_Cloud', 'ignoreZeroCount=1&limit=28')->to($tags); ?>
+<?php while($tags->next()): ?>
+    <a href="<?php $tags->permalink(); ?>" class="label bg-primary"><?php $tags->name(); ?></a>
+<?php endwhile; ?>
+
+// class="size-<?php $tags->split(5, 10, 20, 30); ?>" 
+// a 元素的类名，中如果加上以上的代码的话，可以实现文字 `size` 随机大小
+```
+
+- 首页，调用除开博主的留言列表
+
+``` PHP
+<?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
+<?php while($comments->next()): ?>
+    <div class="list-group list-group-alt"> 
+      <a href="<?php $comments->permalink(); ?>" class="media list-group-item"> 
+      <span class="pull-left thumb-sm"> <?php $comments->gravatar('40', ''); ?> </span> 
+      <span class="media-body block m-b-none"><?php $comments->author(false); ?><br /> 
+        <small class="text-muted"><?php $comments->excerpt(50, '...'); ?></small> 
+      </span> 
+      </a> 
+     </div> 
+<?php endwhile; ?>
+```
 
 - 自定义留言样式
 
