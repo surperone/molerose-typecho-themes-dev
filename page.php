@@ -66,7 +66,7 @@
         </div> 
        </section> 
        <footer class="scrollable wrapper blog-footer">
-        &copy; 2017 MoleRose .
+         &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>
         </footer>
       </section> 
       <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a> 

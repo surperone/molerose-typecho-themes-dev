@@ -28,7 +28,13 @@ echo $commentClass;
             <cite class="fn comment-info-title"><?php $comments->author(); ?></cite>
             <a href="<?php $comments->permalink(); ?>" class="comment-meta" ><?php $comments->date('F jS, Y \a\t h:i a'); ?></a>
         </div>
+
         <?php $comments->content(); ?>
+
+        <?php if ('waiting' == $comments->status) { ?>  
+        <em class="awaiting"><?php $options->commentStatus(); ?></em>  
+        <?php } ?>
+        <!-- 评论审核，waiting 后全等的对象，对应 threadedComments 的第一，二个对象 -->
         <div class="comment-meta">
             <span class="comment-reply label bg-info"><?php $comments->reply(); ?></span>
         </div>

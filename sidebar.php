@@ -18,10 +18,10 @@
             </ul> </li> 
            <li> <a href="#" class="auto"> <span class="pull-right text-muted"> <i class="fa fa-angle-left text"></i> <i class="fa fa-angle-down text-active"></i> </span> <i class="icon-cup icon"> </i> <span> <?php _e('Pages'); ?> </span> </a> 
             <ul class="nav dk text-sm"> 
-             <li> <a href="profile.html" class="auto"> <i class="fa fa-angle-right text-xs"></i> <span>关于我</span> </a> </li> 
-             <li> <a href="blog.html" class="auto"> <i class="fa fa-angle-right text-xs"></i> <span>小邻居</span> </a> </li> 
-             <li> <a href="invoice.html" class="auto"> <i class="fa fa-angle-right text-xs"></i> <span>时光机</span> </a> </li> 
-             <li> <a href="gmap.html" class="auto"> <i class="fa fa-angle-right text-xs"></i> <span>留言墙</span> </a> </li> 
+                  <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+                    <?php while($pages->next()): ?>
+                      <li><a class="auto" <?php if($this->is('page', $pages->slug)): ?><?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><i class="fa fa-angle-right text-xs"></i><span><?php $pages->title(); ?></span></a></li>
+                    <?php endwhile; ?>
             </ul> </li> 
           </ul> 
          </nav> 
@@ -37,7 +37,7 @@
            <li> <a href="https://github.com/amplest">Github <i class="fa fa-github-alt pull-right"></i></a></li> 
            <li> <a href="http://weibo.com/xiongxingjiayou">新浪微博 <i class="fa fa-weibo pull-right"></i></a> </li> 
            <li> <a href="#"> 吾家小店 <i class="fa fa-shopping-cart pull-right"></i></a> </li> 
-           <li> <a href="https://github.com/amplest/typecho-theme-molerose-html-css">开发文档 <i class="fa fa-book pull-right"></i></a> </li> 
+           <li> <a href="https://github.com/amplest/molerose-typecho-themes-dev">开发文档 <i class="fa fa-book pull-right"></i></a> </li> 
            <li class="divider"></li> 
            <li><p class="text-center">生命就一次，为何不开心点</p></li> 
           </ul> 

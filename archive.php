@@ -1,6 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
-
 <?php $this->need('sidebar.php'); ?>
 
      <section id="content" class="blog-box"> 
@@ -9,9 +8,7 @@
         <div class="row"> 
          <div class="col-sm-9"> 
           <div class="blog-post"> 
-
           <ol class="breadcrumb">
-
             <li><a href="<?php $this->options->siteUrl(); ?>">首页</a></li>
             <?php if ($this->is('index')): ?>
             <?php elseif ($this->is('post')): ?>
@@ -21,46 +18,44 @@
               <?php $this->archiveTitle(' &raquo; ','',''); ?>
             <?php endif; ?>
 
-            <font class="pull-right blog-page-tit"> <?php $this->category(','); ?></font>
+            <font class="pull-right blog-page-tit"> <?php $this->archiveTitle(array(
+            'category'  =>  _t('分类 %s 下的文章'),
+            'search'    =>  _t('包含关键字 %s 的文章'),
+            'tag'       =>  _t('标签 %s 下的文章'),
+            'author'    =>  _t('%s 发布的文章')
+        ), '', ''); ?></font>
             <i class="icon-umbrella icon blog-page-ico pull-right"></i>
           </ol>
 
+           <?php while($this->next()): ?>
            <div class="post-item"> 
             <div class="post-media"> 
               <?php Thumbnail_Plugin::show($this); ?>
             </div> 
             <div class="caption wrapper-lg"> 
-             <h2 class="post-title"><?php $this->title() ?></h2> 
+             <h2 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->sticky(); $this->title() ?></a></h2> 
              <div class="post-sum"> 
-              <?php $this->content(); ?>
+              <p><?php $this->excerpt(200, '...'); ?></p> 
              </div> 
              <div class="line line-lg"></div> 
              <div class="text-muted"> 
-              <i class="fa fa-clock-o icon-muted"></i> 最后修改：<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('F j, Y'); ?></time>
+              <i class="fa fa-user icon-muted"></i> by 
+              <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author" class="m-r-sm"><?php $this->author(); ?></a>
+              <i class="fa fa-clock-o icon-muted"></i> <font datetime="<?php $this->date('c'); ?>" itemprop="datePublished"> <?php $this->date('Y-m-d H:i a'); ?> </font>
+              <a itemprop="discussionUrl" href="<?php $this->permalink() ?>#comments" class="m-l-sm"><i class="fa fa-comment-o icon-muted"></i> <?php $this->commentsNum('comments', '1 comments', '%d comments'); ?></a> 
              </div> 
-             <div class="blog-appreciate text-center">
-              <a href="#" class="btn btn-s-md btn-danger" data-toggle="modal" data-target="#m-appreciate"><i class="fa fa-heart"></i> 赞赏支持</a>
-             </div>
-             <?php $this->need('pay.php'); ?>
             </div> 
-           </div> 
+           </div> <!-- /.post-item -->
+           <?php endwhile; ?> 
             
           </div> 
-          <!-- ARC Pages -->
-          <div class="text-center m-t-lg m-b-lg">
-          <ul class="pager">
-            <!-- Post Page -->
-            <?php thePrev($this); ?>
-            <?php theNext($this); ?>
-          </ul>
+          <div class="text-center"> 
+           <?php $this->pageNav('«', '»', 3, '...', array('wrapTag' => 'ul', 'wrapClass' => 'pagination pagination-sm', 'itemTag' => 'li', 'textTag' => 'a', 'currentClass' => 'active', 'prevClass' => '', 'nextClass' => '')); ?> 
           </div> 
-          <!-- ARC Pages -->
-
-          <?php $this->need('comments.php'); ?>
-
          </div> 
-          
-        <?php $this->need('sidebarRight.php'); ?>
+
+         <?php $this->need('sidebarRight.php'); ?>
+
         </div> 
        </section> 
        <footer class="scrollable wrapper blog-footer">

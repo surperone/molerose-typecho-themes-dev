@@ -15,7 +15,6 @@
 | functions.php | 功能存放 | 系统自带 |
 | avatars.php | 留言墙 | 新增 |
 | links.php | 友情链接 | 新增 |
-| tags.php | 标签页面 | 新增 |
 | file.php | 归档页面 | 新增 |
 
 ## 功能
@@ -39,10 +38,87 @@
 
 ## 笔记
 
+- 自定义留言样式
+
+``` PHP
+<?php function threadedComments($comments, $options) {
+    $commentClass = '';
+    if ($comments->authorId) {
+        if ($comments->authorId == $comments->ownerId) {
+            $commentClass .= ' comment-by-author';
+        } else {
+            $commentClass .= ' comment-by-user';
+        }
+    }
+ 
+    $commentLevelClass = $comments->levels > 0 ? ' comment-child' : ' comment-parent';
+?>
+ 
+<li id="li-<?php $comments->theId(); ?>" class="comment-body<?php 
+if ($comments->levels > 0) {
+    echo ' comment-child';
+    $comments->levelsAlt(' comment-level-odd', ' comment-level-even');
+} else {
+    echo ' comment-parent';
+}
+$comments->alt(' comment-odd', ' comment-even');
+echo $commentClass;
+?>">
+
+    <div class="comment-txt-box" id="<?php $comments->theId(); ?>">
+        <div class="comment-author clearfix">
+            <?php $comments->gravatar('40', ''); ?>
+            <cite class="fn comment-info-title"><?php $comments->author(); ?></cite>
+            <a href="<?php $comments->permalink(); ?>" class="comment-meta" ><?php $comments->date('F jS, Y \a\t h:i a'); ?></a>
+        </div>
+
+        <?php $comments->content(); ?>
+
+        <?php if ('waiting' == $comments->status) { ?>  
+        <em class="awaiting"><?php $options->commentStatus(); ?></em>  
+        <?php } ?>
+        <!-- 评论审核，waiting 后全等的对象，对应 threadedComments 的第一，二个对象 -->
+        <div class="comment-meta">
+            <span class="comment-reply label bg-info"><?php $comments->reply(); ?></span>
+        </div>
+    </div>
+<?php if ($comments->children) { ?>
+    <div class="comment-children">
+        <?php $comments->threadedComments($options); ?>
+        
+    </div>
+<?php } ?>
+</li>
+<?php } ?>
+
+
+//$this 对应整个评论自定义函数(threadedComments)第一个变量，如这里是 $comments
+<?php if ('waiting' == $this->status) { ?>  
+//$singleCommentOptions 对应函数(threadedComments)的第二个变量，如这里是 $options
+<em class="awaiting"><?php $singleCommentOptions->commentStatus(); ?></em>  
+<?php } ?>
+
+```
+
+- 输出/嵌入页面
+
+``` PHP
+<?php $this->need('comments.php'); ?>
+```
+
 - 单独输出文章分类
 
 ``` PHP
 <?php $this->widget('Widget_Metas_Category_List') ->parse('<li class="list-group-item"> <a href="{permalink}"> <span class="badge pull-right">{count}</span> {name} </a> </li>'); ?>
+```
+
+- 单独输出单页列表
+
+``` PHP
+<?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+<?php while($pages->next()): ?>
+  <li><a class="auto" <?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><i class="fa fa-angle-right text-xs"></i><span><?php $pages->title(); ?></span></a></li>
+<?php endwhile; ?>
 ```
 
 - 单独输出文字内容
