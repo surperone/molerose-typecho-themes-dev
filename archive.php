@@ -33,11 +33,11 @@
               <?php Thumbnail_Plugin::show($this); ?>
             </div> 
             <div class="caption wrapper-lg"> 
-             <h2 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->sticky(); $this->title() ?></a></h2> 
+             <h4 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->sticky(); $this->title() ?></a></h4> 
              <div class="post-sum"> 
               <p><?php $this->excerpt(200, '...'); ?></p> 
              </div> 
-             <div class="line line-lg"></div> 
+             <div class="line"></div> 
              <div class="text-muted"> 
               <i class="fa fa-user icon-muted"></i> by 
               <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author" class="m-r-sm"><?php $this->author(); ?></a>

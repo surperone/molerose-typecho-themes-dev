@@ -30,7 +30,7 @@
               <?php Thumbnail_Plugin::show($this); ?>
             </div> 
             <div class="caption wrapper-lg"> 
-             <h2 class="post-title"><?php $this->title() ?></h2> 
+             <h4 class="post-title"><?php $this->title() ?></h4> 
              <div class="post-sum"> 
               <?php $this->content(); ?>
              </div> 

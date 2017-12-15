@@ -30,7 +30,7 @@
             <i class="fa fa-chevron-right icon-muted"></i>
             <i class="fa fa-fw fa-home icon-muted"></i> 你可以点击我，再回到首页
           </a>
-          <a href="<?php $pages->permalink(); ?>" class="list-group-item">
+          <a href="" class="list-group-item">
             <i class="fa fa-chevron-right icon-muted"></i>
             <i class="fa fa-fw fa-user icon-muted"></i> 当然，如果首页你看过了，你可以尝试着多了解我以一些
           </a>

@@ -269,18 +269,3 @@ echo $link; // 自定义样式，没有链接时候的不可点击样式
 
 ```
 
-- 使用非VPS承载网站（例：虚拟主机，托管等...数据库链接配置，适用于小白）
-
-```PHP
-/** 定义数据库参数 */
-$db = new Typecho_Db('Mysql', 'typecho_');
-$db->addServer(array (
-  'host' => 'localhost',
-  'user' => '数据库用户名',
-  'password' => 'xiongxing520',
-  'charset' => 'utf8',
-  'port' => '3306',
-  'database' => '数据库名称',
-), Typecho_Db::READ | Typecho_Db::WRITE);
-Typecho_Db::set($db);
-```
