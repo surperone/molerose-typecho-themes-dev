@@ -26,7 +26,7 @@ echo $commentClass;
         <div class="comment-author clearfix">
             <?php $comments->gravatar('40', ''); ?>
             <cite class="fn comment-info-title"><?php $comments->author(); ?></cite>
-            <a href="<?php $comments->permalink(); ?>" class="comment-meta" ><?php $comments->date('F jS, Y \a\t h:i a'); ?></a>
+            <span class="comment-meta" ><?php $comments->date('F jS, Y \a\t h:i a'); ?></span>
         </div>
 
         <?php $comments->content(); ?>
@@ -89,11 +89,11 @@ echo $commentClass;
     </div> 
     <div class="col-sm-4"> 
      <label for="mail"<?php if ($this->options->commentsRequireMail): ?> class="required"<?php endif; ?>><?php _e('邮箱'); ?> <em class="form-bt">*</em></label> 
-     <input type="mail" name="mail" id="mail" class="form-control" placeholder="<?php _e('邮箱（将为您保密）'); ?>" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> required /> 
+     <input type="mail" name="mail" id="mail" class="form-control" placeholder="<?php _e('邮箱（将为您保密）'); ?>" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> /> 
     </div> 
     <div class="col-sm-4"> 
      <label for="url"<?php if ($this->options->commentsRequireURL): ?> class="required"<?php endif; ?>><?php _e('地址'); ?></label> 
-     <input type="url" name="url" id="url" class="form-control" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> required /> 
+     <input type="url" name="url" id="url" class="form-control" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> /> 
     </div>
 
     </div> 

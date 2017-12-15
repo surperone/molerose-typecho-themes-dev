@@ -31,7 +31,7 @@
        <footer class="footer hidden-xs no-padder text-center-nav-xs"> 
         <div class="bg hidden-xs "> 
          <div class="dropdown dropup wrapper-sm clearfix"> 
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left m-l-xs"> <img src="/usr/themes/molerose/images/400-400.jpg" class="dker" alt="..." /> </span> <span class="hidden-nav-xs clear"> <span class="block m-l"> <strong class="font-bold text-lt">MolrRose</strong> <b class="caret"></b> </span> <span class="text-muted text-xs block m-l">Web Developer</span> </span> </a> 
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left m-l-xs"> <img src="<?php $this->options->logoUrl() ?>" class="dker" alt="..." /> </span> <span class="hidden-nav-xs clear"> <span class="block m-l"> <strong class="font-bold text-lt">MolrRose</strong> <b class="caret"></b> </span> <span class="text-muted text-xs block m-l">Web Developer</span> </span> </a> 
           <ul class="dropdown-menu animated fadeInRight aside text-left"> 
            <li> <span class="arrow bottom hidden-nav-xs"></span> <a href="mailto:admin@molerose.com">电子邮箱 <i class="fa fa-envelope pull-right"></i></a></li> 
            <li> <a href="https://github.com/amplest">Github <i class="fa fa-github-alt pull-right"></i></a></li> 

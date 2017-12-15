@@ -84,16 +84,17 @@
        <!-- Login -->
        <li class="hidden-xs"> <a href="#" data-toggle="dropdown" class="dropdown-toggle lt"> <i class="icon-user"></i> </a> 
        <section class="dropdown-menu aside animated fadeInUp panel-body bg-white dropdown-stop"> 
-          <form role="form">
+          <form role="form" action="<?php $this->options->loginaction(); ?>" method="post">
             <div class="form-group">
               <label>用户名</label>
-              <input type="text" class="form-control" placeholder="请输入用户名">
+              <input type="text" id="name" name="name" class="form-control" placeholder="请输入用户名" required>
             </div>
             <div class="form-group">
               <label>密码</label>
-              <input type="password" class="form-control" placeholder="请输入密码">
+              <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码" required>
             </div>
             <button type="submit" class="btn btn-group-justified btn-success">提交登录</button>
+            <input type="hidden" name="referer" value="<?php $this->options->adminUrl(); ?>">
           </form>
        </section> 
        </li>

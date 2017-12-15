@@ -42,9 +42,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
           <?php $this->need('sidebarRight.php'); ?>      
         </div> 
        </section> 
-       <footer class="scrollable wrapper blog-footer">
-         &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>
-        </footer>
+       <?php $this->need('global.php'); ?>
       </section> 
       <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a> 
      </section> 

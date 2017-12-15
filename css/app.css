@@ -851,7 +851,40 @@ body.container {
 .blog-file-box dl dd:hover small i {
   color: #f05050;
 }
-
+.blog-ad-box .block i,
+.blog-ad-box .block a {
+  margin-top: 3px;
+  margin-right: 5px;
+  color: #ccc;
+  -webkit-transition:all .5s;
+  transition:all .5s;
+}
+.blog-ad-box .block:hover i,
+.blog-ad-box .block:hover a {
+  color: #666;
+}
+.comment-txt-box .awaiting {
+  font-size: 12px;
+  font-style: normal;
+  color: #ccc;
+  line-height: 30px;
+}
+.cancel-comment-reply {
+  margin-top: 10px;
+}
+#cancel-comment-reply-link {
+  background-color: #f05050;
+  color: #fff;
+  display: inline;
+  padding: .2em .6em .2em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+   border-radius: .25em;
+}
 
 .comments-cons {
   margin-bottom: 5px;
@@ -1717,6 +1750,12 @@ fieldset[disabled] .btn-dark.active {
 
 .comment-children {
   margin-left: 0;
+}
+.blog-item-info a {
+  color: #939aa0;
+}
+.blog-item-info a:hover {
+  color: #666;
 }
 
 

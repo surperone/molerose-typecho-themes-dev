@@ -39,6 +39,33 @@
 
 ## 使用注意事项
 
+- 博客实现前台登录
+
+```PHP
+<form role="form" action="<?php $this->options->loginaction(); ?>" method="post">
+    <div class="form-group">
+      <label>用户名</label>
+      <input type="text" id="name" name="name" class="form-control" placeholder="请输入用户名" required>
+    </div>
+    <div class="form-group">
+      <label>密码</label>
+      <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码" required>
+    </div>
+    <button type="submit" class="btn btn-group-justified btn-success">提交登录</button>
+    <input type="hidden" name="referer" value="<?php $this->options->adminUrl(); ?>">
+</form>
+```
+
+- 统计整站数据
+
+```PHP
+<?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
+文章总数：<?php $stat->publishedPostsNum() ?>篇
+分类总数：<?php $stat->categoriesNum() ?>个
+评论总数：<?php $stat->publishedCommentsNum() ?>条
+页面总数：<?php $stat->publishedPagesNum() ?>个
+```
+
 - 针对 `Links` 插件，不论使用typecho1.0还是typecho1.1 均需要修改原始模板的一个东西（修改的原因是因为插件本导致文件被重复 `require` 了）
 - 目录：`/admin/common.php`
 - 内容：第6行的 `define('__TYPECHO_ADMIN__', true);` 换成如下代码
@@ -242,3 +269,18 @@ echo $link; // 自定义样式，没有链接时候的不可点击样式
 
 ```
 
+- 使用非VPS承载网站（例：虚拟主机，托管等...数据库链接配置，适用于小白）
+
+```PHP
+/** 定义数据库参数 */
+$db = new Typecho_Db('Mysql', 'typecho_');
+$db->addServer(array (
+  'host' => 'localhost',
+  'user' => '数据库用户名',
+  'password' => 'xiongxing520',
+  'charset' => 'utf8',
+  'port' => '3306',
+  'database' => '数据库名称',
+), Typecho_Db::READ | Typecho_Db::WRITE);
+Typecho_Db::set($db);
+```

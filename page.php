@@ -30,7 +30,7 @@
 
                           <a href="#" class="thumb pull-right m-l m-t-xs avatar">
 
-                            <img src="/usr/themes/molerose/images/a4.png" alt="...">
+                            <img src="<?php $this->options->logoUrl() ?>" alt="...">
 
                             <i class="on md b-white bottom"></i>
 
@@ -40,7 +40,10 @@
 
                             <a href="#" class="text-info">Molerose <i class="icon-twitter"></i></a>
 
-                            <small class="block text-muted">2,415 followers / 225 tweets</small>
+                            <small class="block text-muted">
+                            <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
+                        article <?php $stat->publishedPostsNum() ?> / sort <?php $stat->categoriesNum() ?> / comment <?php $stat->publishedCommentsNum() ?> / pages <?php $stat->publishedPagesNum() ?>
+                            </small>
 
                             <a href="#" class="btn btn-xs btn-success m-t-xs">Follow</a>
 
@@ -65,9 +68,7 @@
          <?php $this->need('sidebarRight.php'); ?> 
         </div> 
        </section> 
-       <footer class="scrollable wrapper blog-footer">
-         &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>
-        </footer>
+       <?php $this->need('global.php'); ?>
       </section> 
       <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a> 
      </section> 

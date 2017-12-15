@@ -36,7 +36,7 @@
              </div> 
              <div class="line line-lg"></div> 
              <div class="text-muted"> 
-              <i class="fa fa-clock-o icon-muted"></i> 最后修改：<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('F j, Y'); ?></time>
+              <i class="fa fa-clock-o icon-muted"></i> 最后修改：<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('Y年m月d日 H:i A'); ?></time>
              </div> 
              <div class="blog-appreciate text-center">
               <a href="#" class="btn btn-s-md btn-danger" data-toggle="modal" data-target="#m-appreciate"><i class="fa fa-heart"></i> 赞赏支持</a>
@@ -63,9 +63,7 @@
         <?php $this->need('sidebarRight.php'); ?>
         </div> 
        </section> 
-       <footer class="scrollable wrapper blog-footer">
-         &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>
-        </footer>
+       <?php $this->need('global.php'); ?>
       </section> 
       <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a> 
      </section> 

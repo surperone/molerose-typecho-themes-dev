@@ -3,14 +3,14 @@
 <div class="col-sm-3"> 
 <h5 class="font-bold"><?php _e('热门文章'); ?></h5> 
 
-<div> 
+<div class="blog-ad-box m-b-lg"> 
 
 <?php TePostViews_Plugin::outputHotPosts($this) ?>
 
 </div>
 
 <h5 class="font-bold"><?php _e('便捷分类'); ?></h5> 
-<ul class="list-group"> 
+<ul class="list-group blog-category-box m-b-lg"> 
    <?php $this->widget('Widget_Metas_Category_List')
                    ->parse('<li class="list-group-item"> <a href="{permalink}"> <span class="badge pull-right">{count}</span> {name} </a> </li>'); ?>
 </ul> 

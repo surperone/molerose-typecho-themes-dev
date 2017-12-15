@@ -31,7 +31,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
               <p><?php $this->excerpt(200, '...'); ?></p> 
              </div> 
              <div class="line line-lg"></div> 
-             <div class="text-muted"> 
+             <div class="text-muted blog-item-info"> 
               <i class="fa fa-user icon-muted"></i> by 
               <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author" class="m-r-sm"><?php $this->author(); ?></a>
               <i class="fa fa-clock-o icon-muted"></i> <font datetime="<?php $this->date('c'); ?>" itemprop="datePublished"> <?php $this->date('Y-m-d H:i a'); ?> </font>
@@ -51,9 +51,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
         </div> <!-- /.row -->
        </section> <!-- /.wrapper -->
-       <footer class="scrollable wrapper blog-footer">
-        &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>
-        </footer>
+       <?php $this->need('global.php'); ?>
       </section> 
       <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a> 
      </section> <!-- /#content -->
