@@ -269,3 +269,18 @@ echo $link; // 自定义样式，没有链接时候的不可点击样式
 
 ```
 
+- 非VPS下（如，虚拟主机...）配置文件中，数据库索引书写如下，修改 `user`，`password`，以及 `database`
+
+``` PHP
+/** 定义数据库参数 */
+$db = new Typecho_Db('Mysql', 'typecho_');
+$db->addServer(array (
+  'host' => 'localhost',
+  'user' => 'root',
+  'password' => '123456',
+  'charset' => 'utf8',
+  'port' => '3306',
+  'database' => 'root',
+), Typecho_Db::READ | Typecho_Db::WRITE);
+Typecho_Db::set($db);
+```
