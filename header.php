@@ -3,7 +3,6 @@
 <html lang="en" class="app">
  <head> 
   <meta charset="<?php $this->options->charset(); ?>">
-  <meta charset="utf-8" /> 
   <title><?php $this->archiveTitle(array(
             'category'  =>  _t('分类 %s 下的文章'),
             'search'    =>  _t('包含关键字 %s 的文章'),
