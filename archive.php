@@ -1,7 +1,6 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
 <?php $this->need('sidebar.php'); ?>
-
      <section id="content" class="blog-box"> 
       <section class="vbox"> 
        <section class="scrollable wrapper"> 
@@ -15,9 +14,8 @@
             <li><?php $this->category(); ?></li>
             <li class="active"><?php $this->title() ?></li>
             <?php else: ?>
-              <?php $this->archiveTitle(' &raquo; ','',''); ?>
+              <li><?php $this->archiveTitle(' &raquo; ','',''); ?></li>
             <?php endif; ?>
-
             <font class="pull-right blog-page-tit"> <?php $this->archiveTitle(array(
             'category'  =>  _t('分类 %s 下的文章'),
             'search'    =>  _t('包含关键字 %s 的文章'),
@@ -26,7 +24,6 @@
         ), '', ''); ?></font>
             <i class="icon-umbrella icon blog-page-ico pull-right"></i>
           </ol>
-
            <?php while($this->next()): ?>
            <div class="post-item"> 
             <div class="post-media"> 
@@ -47,20 +44,16 @@
             </div> 
            </div> <!-- /.post-item -->
            <?php endwhile; ?> 
-            
           </div> 
           <div class="text-center"> 
            <?php $this->pageNav('«', '»', 3, '...', array('wrapTag' => 'ul', 'wrapClass' => 'pagination pagination-sm', 'itemTag' => 'li', 'textTag' => 'a', 'currentClass' => 'active', 'prevClass' => '', 'nextClass' => '')); ?> 
           </div> 
          </div> 
-
          <?php $this->need('sidebarRight.php'); ?>
-
         </div> 
        </section> 
        <?php $this->need('global.php'); ?>
       </section> 
       <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a> 
      </section> 
-
 <?php $this->need('footer.php'); ?>

@@ -7,9 +7,8 @@
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  $this->need('header.php');
- ?>
+?>
  <?php $this->need('sidebar.php'); ?>
-
      <!-- /.aside --> 
      <section id="content" class="blog-box"> 
       <section class="vbox"> 
@@ -17,7 +16,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         <div class="row"> 
          <div class="col-sm-9"> 
           <div class="blog-post"> 
-
           <ol class="breadcrumb">
             <li><a href="<?php $this->options->siteUrl(); ?>">首页</a></li>
             <?php if ($this->is('index')): ?>
@@ -27,7 +25,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             <?php else: ?>
               <li><?php $this->archiveTitle(' &raquo; ','',''); ?></li>
             <?php endif; ?>
-
             <font class="pull-right blog-page-tit"> <?php $this->title() ?></font>
             <i class="icon-umbrella icon blog-page-ico pull-right"></i>
           </ol>

@@ -10,7 +10,6 @@
  
     $commentLevelClass = $comments->levels > 0 ? ' comment-child' : ' comment-parent';
 ?>
- 
 <li id="li-<?php $comments->theId(); ?>" class="comment-body<?php 
 if ($comments->levels > 0) {
     echo ' comment-child';
@@ -21,16 +20,13 @@ if ($comments->levels > 0) {
 $comments->alt(' comment-odd', ' comment-even');
 echo $commentClass;
 ?>">
-
     <div class="comment-txt-box" id="<?php $comments->theId(); ?>">
         <div class="comment-author clearfix">
             <?php $comments->gravatar('40', ''); ?>
             <cite class="fn comment-info-title"><?php $comments->author(); ?></cite>
             <span class="comment-meta" ><?php $comments->date('F jS, Y \a\t h:i a'); ?></span>
         </div>
-
         <?php $comments->content(); ?>
-
         <?php if ('waiting' == $comments->status) { ?>  
         <em class="awaiting"><?php $options->commentStatus(); ?></em>  
         <?php } ?>
@@ -42,37 +38,26 @@ echo $commentClass;
 <?php if ($comments->children) { ?>
     <div class="comment-children">
         <?php $comments->threadedComments($options); ?>
-        
     </div>
 <?php } ?>
 </li>
 <?php } ?>
-
 <!-- comments Begin -->
 <section id="comments">
-
  <?php $this->comments()->to($comments); ?>
  <?php if ($comments->have()): ?>
-
 <h4 class="m-t-lg m-b"><?php $this->commentsNum(_t('暂无评论'), _t('仅有一条评论'), _t('已有 %d 条评论')); ?></h4> 
-
 <?php $comments->listComments(); ?>
-
 <?php endif; ?>
-
 <div class="text-center"> 
 <?php $comments->pageNav('«', '»', 3, '...', array('wrapTag' => 'ul', 'wrapClass' => 'pagination pagination-sm', 'itemTag' => 'li', 'textTag' => 'a', 'currentClass' => 'active', 'prevClass' => '', 'nextClass' => '')); ?>
 </div> 
-
 <?php if($this->allow('comment')): ?>
 <section id="<?php $this->respondId(); ?>" class="respond">
-
 <div class="cancel-comment-reply">
         <?php $comments->cancelReply(); ?>
 </div>
-
 <h4 class="m-t-md m-b" id="response"><?php _e('发表评论'); ?></h4>
-
 <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form" > 
     <div class="form-group"> 
     <label><?php _e('评论'); ?> <em class="form-bt">*</em></label> 
@@ -95,10 +80,8 @@ echo $commentClass;
      <label for="url"<?php if ($this->options->commentsRequireURL): ?> class="required"<?php endif; ?>><?php _e('地址'); ?></label> 
      <input type="url" name="url" id="url" class="form-control" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> /> 
     </div>
-
     </div> 
     <?php endif; ?>
-
     <div class="form-group"> 
     <button type="submit" class="btn btn-success"><?php _e('发表评论'); ?></button> 
     </div> 
@@ -107,9 +90,7 @@ echo $commentClass;
  <?php else: ?>
     <h3><?php _e('评论已关闭'); ?></h3>
 <?php endif; ?>
-
 </section>
-
 <!-- OWO 表情 -->
 <script>
 var OwO_demo = new OwO({
