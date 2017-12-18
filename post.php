@@ -36,7 +36,7 @@
              </div> 
              <div class="line line-lg"></div> 
              <div class="text-muted"> 
-              <i class="fa fa-clock-o icon-muted"></i> 最后修改：<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('Y年m月d日 H:i A'); ?></time>
+              <i class="fa fa-clock-o icon-muted"></i> 最后修改：<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php echo date('Y年m月d日 H:i A', $this->modified);?></time>
              </div> 
              <div class="blog-appreciate text-center">
               <a href="#" class="btn btn-s-md btn-danger" data-toggle="modal" data-target="#m-appreciate"><i class="fa fa-heart"></i> 赞赏支持</a>

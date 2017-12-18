@@ -48,7 +48,7 @@
      <div class="form-group"> 
       <div class="input-group"> 
        <span class="input-group-btn"> <button type="submit" class="btn btn-sm bg-white btn-icon rounded"><i class="fa fa-search"></i></button> </span> 
-       <input type="text" id="s" name="s" class="form-control input-sm no-border rounded" placeholder="<?php _e('输入关键字搜索'); ?>" /> 
+       <input type="text" id="s" name="s" class="form-control input-sm no-border rounded" placeholder="<?php _e('输入关键字搜索'); ?>" required/> 
       </div> 
      </div> 
     </form> 
