@@ -25,32 +25,21 @@
           </ol>
 
          <section class="panel ">
-
-                        <div class="panel-body">
-
-                          <a href="#" class="thumb pull-right m-l m-t-xs avatar">
-
-                            <img src="<?php $this->options->logoUrl() ?>" alt="...">
-
-                            <i class="on md b-white bottom"></i>
-
-                          </a>
-
-                          <div class="clear">
-
-                            <a href="#" class="text-info">Molerose <i class="icon-twitter"></i></a>
-
-                            <small class="block text-muted">
-                            <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
-                        article <?php $stat->publishedPostsNum() ?> / sort <?php $stat->categoriesNum() ?> / comment <?php $stat->publishedCommentsNum() ?> / pages <?php $stat->publishedPagesNum() ?>
-                            </small>
-
-                            <a href="#" class="btn btn-xs btn-success m-t-xs">Follow</a>
-
-                          </div>
-
-                        </div>
-
+              <div class="panel-body">
+                <a href="<?php $this->options->siteUrl(); ?>" class="thumb pull-right m-l m-t-xs avatar">
+                  <img src="<?php $this->options->logoUrl() ?>" alt="...">
+                  <i class="on md b-white bottom"></i>
+                </a>
+                <div class="clear">
+                  <a href="<?php $this->options->siteUrl(); ?>" class="text-info">Molerose </a>
+                  <small class="block text-muted">
+                  <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
+              article <?php $stat->publishedPostsNum() ?> / sort <?php $stat->categoriesNum() ?> / comment <?php $stat->publishedCommentsNum() ?> / pages <?php $stat->publishedPagesNum() ?>
+                  </small>
+                  <a href="javascript:;" class="btn btn-xs bg-danger m-t-xs" data-toggle="modal" data-target="#m-appreciate" title="何不请我喝杯咖啡？"><i class="icon icon-heart pull-left m-t-xxs m-r-xs"></i> Award</a>
+                  <?php $this->need('pay.php'); ?>
+                </div>
+              </div>
             </section>
 
            <div class="post-item"> 
