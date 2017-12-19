@@ -34,8 +34,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
              <div class="text-muted blog-item-info"> 
               <i class="fa fa-user icon-muted"></i> by 
               <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author" class="m-r-sm"><?php $this->author(); ?></a>
-              <i class="fa fa-clock-o icon-muted"></i> <font datetime="<?php $this->date('c'); ?>" itemprop="datePublished"> <?php $this->date('Y-m-d H:i a'); ?> </font>
-              <a itemprop="discussionUrl" href="<?php $this->permalink() ?>#comments" class="m-l-sm"><i class="fa fa-comment-o icon-muted"></i> <?php $this->commentsNum('comments', '1 comments', '%d comments'); ?></a> 
+              <i class="fa fa-clock-o icon-muted"></i> <font datetime="<?php $this->date('c'); ?>" itemprop="datePublished"> <?php $this->date('Y年m月d日'); ?> </font>
+              <a itemprop="discussionUrl" href="<?php $this->permalink() ?>#comments" class="m-l-sm"><i class="fa fa-comment icon-muted"></i> <?php $this->commentsNum('comments', '1 comments', '%d comments'); ?></a> 
              </div> 
             </div> 
            </div> <!-- /.post-item -->
